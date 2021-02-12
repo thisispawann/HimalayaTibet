@@ -1,0 +1,94 @@
+{% load static %}
+<style>
+    .subscribe-area {
+        margin: 150px 0px;
+    }
+
+    .mb-15 {
+        margin-bottom: 20px;
+    }
+
+    .subscribe-text span {
+        font-size: 12px;
+        font-weight: 700;
+        color: #222;
+        letter-spacing: 5px;
+    }
+
+    .subscribe-text h2 {
+        color: #222;
+        font-size: 36px;
+        font-weight: 300;
+        margin-bottom: 0;
+        margin-top: 6px;
+    }
+
+    .subscribe-wrapper {
+        overflow: hidden;
+    }
+
+    .mb-15 {
+        margin-bottom: 15px;
+    }
+
+    .subscribe2-wrapper .subscribe-form input {
+        background: none;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 30px;
+        color: #222;
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 300;
+        height: 57px;
+        margin-right: 17px;
+        padding-left: 35px;
+        width: 70%;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .subscribe2-wrapper .subscribe-form button {
+        background: #e09657;
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1;
+        padding: 18px 46px;
+        transition: all 0.3s ease 0s;
+        outline: none;
+        margin: 0px !important;
+        float: right;
+    }
+
+    .subscribe2-wrapper .subscribe-form button i {
+        font-size: 18px;
+        padding-left: 5px;
+    }
+</style>
+
+<section class="subscribe-area pb-50 pt-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="subscribe-text mb-15">
+                    <span>JOIN OUR NEWSLETTER</span>
+                    <h2>subscribe newsletter</h2>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="subscribe-wrapper subscribe2-wrapper mb-15">
+                    <div class="subscribe-form">
+                        <form action="#">
+                            <input placeholder="enter your email address" type="email">
+                            <button>subscribe <i class="fas fa-long-arrow-alt-right ml-auto"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

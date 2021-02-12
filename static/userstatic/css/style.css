@@ -1,0 +1,14 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Nunito Sans;
+    font-size: 14px;
+    overflow-x: hidden;
+    height: auto;
+    background-color: #f6f6f6;
+}

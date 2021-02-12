@@ -1,0 +1,70 @@
+{% load static %}
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators pb-5">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active"
+            style="background-image: url('{% static 'userstatic/img/landing_page/bike_tour.jpg' %}')"
+            data-interval="9000">
+            <div class="carousel-caption d-none d-md-block pb-5 mb-5">
+                <h2 class="display-4 animate__animated animate__fadeInDown">Himalyan Tibet Shop</h2>
+                <h6 class="lead animate__animated animate__fadeInUp animate__delay-2s pb-1">This is a description for
+                    the
+                    first slide.</h6>
+                <a href="">
+                    <button
+                        class="mt-2 animate__animated animate__zoomIn animate__delay-3s p-3 px-5 btn btn-button font-weight-bold">
+                        About us
+                    </button>
+                </a>
+            </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item"
+            style="background-image: url('{% static 'userstatic/img/landing_page/village.jpg' %}')"
+            data-interval="9000">
+            <div class="carousel-caption d-none d-md-block pb-5 mb-5">
+                <h2 class="display-4 animate__animated animate__rollIn">Tibetian Bells</h2>
+                <h6 class="lead animate__animated animate__lightSpeedInRight animate__delay-2s pb-1">"These are bowls
+                    now
+                    unavailable on the market, which I reach through a network of contacts in the Himalayan territory
+                    that allows me to access these masterpieces."</h6>
+                <a href="">
+                    <button
+                        class="mt-2 animate__animated animate__backInUp animate__delay-3s p-3 px-5 btn btn-button font-weight-bold">
+                        Buy Now
+                    </button>
+                </a>
+            </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item"
+            style="background-image: url('{% static 'userstatic/img/landing_page/bike_tour.jpg' %}')"
+            data-interval="9000">
+            <div class="carousel-caption d-none d-md-block pb-5 mb-5">
+                <h2 class="display-4 animate__animated animate__rotateInDownRight">Tibetan Crafts</h2>
+                <h6 class="lead animate__animated animate__rotateInUpRight animate__delay-2s pb-1">All the beauty of
+                    Tibetan
+                    craftsmanship, carefully selected</h6>
+                <a href="">
+                    <button
+                        class="mt-2 animate__animated animate__rotateIn animate__delay-4s p-3 px-5 btn btn-button font-weight-bold">
+                        Contact us
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a> -->
+</div>

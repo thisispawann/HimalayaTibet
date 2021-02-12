@@ -1,0 +1,95 @@
+.cta-container {
+  background-color: #e9ecef;
+  /* height: 200px; */
+  padding: 100px 0 70px;
+}
+
+.cta-container .row {
+  margin: 0 !important;
+}
+
+.cta-wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.cta-wrapper img {
+  width: 100%;
+  object-fit: contain;
+  height: 90%;
+}
+
+.cta-wrapper .row:first-child {
+  margin-right: 5%;
+}
+
+.cta-wrapper .row:last-child {
+  text-align: center;
+}
+
+.cta-wrapper .row:last-child h1 {
+  color: orange;
+  font-size: 50px;
+  font-weight: 500;
+  font-family: "Lora";
+  border-bottom: 2px dashed grey;
+  padding-bottom: 30px;
+}
+
+.cta-wrapper .off-percent {
+  font-weight: 900;
+}
+
+p.welcome {
+  text-transform: uppercase;
+  font-size: 17px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cta-wrapper .row:last-child a {
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 30px;
+  height: 56px;
+  color: #fff;
+  background-color: #222;
+}
+
+.cta-wrapper .row a {
+  width: 45%;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+  border: 3px solid #222;
+  height: 50px;
+  border-radius: 27px;
+  padding: 11px;
+}
+
+.cta-wrapper .row a:hover {
+  border: 3px solid #e09657;
+  background: #e09657;
+  color: #fff;
+  transition: all 200ms linear;
+  transition-duration: 0.3s;
+}
+
+@media screen and (max-width: 400px) {
+  .cta-wrapper .row:last-child h1 {
+    font-size: 35px;
+  }
+
+  .cta-wrapper img {
+    height: 100%;
+  }
+
+  .cta-wrapper .row:last-child p {
+    margin-top: 20px;
+  }
+
+  .cta-container {
+    padding: 70px 0;
+  }
+}

@@ -1,0 +1,192 @@
+.shop-wrapper {
+    margin: 90px 0px !important;
+}
+
+.shop-header {
+    height: 200px;
+}
+
+.shop-header h2 {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.shop-container {
+    width: 85%;
+    margin: 0 auto;
+    height: auto;
+    min-height: 1000px;
+    min-height: 500px;
+}
+
+/** Custom Select **/
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-image: none;
+    text-transform: capitalize;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select */
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #e09657;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: #fff;
+}
+
+/***************************product items css ************************************/
+
+.item-wrapper .item .card {
+    height: 400px;
+}
+
+.item-wrapper .card {
+    cursor: pointer;
+    max-height: 450px;
+
+}
+
+.item-wrapper .card img {
+    width: 100%;
+    height: 200px;
+    max-height: 250px;
+}
+
+.item-wrapper .card-body a {
+    color: #e09657;
+    border: 1px solid #e09657;
+    padding: 0px;
+    min-width: 110px;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0 !important;
+    text-align: center;
+    background: #f7f7f700;
+    font-family: futura-pt;
+}
+
+.item-wrapper .card:hover a {
+    color: #fff;
+    background-color: #e09657 !important;
+    border: 1px solid #e09657;
+    transition-duration: 0.7s;
+}
+
+.item-wrapper .card .badge-sell {
+    position: absolute;
+    background-color: red;
+    padding: 10px 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 480px) {
+    .item-wrapper .card img {
+        width: 100%;
+        height: 250px;
+        max-height: 300px;
+    }
+
+    .item-wrapper .item .card {
+        height: 450px;
+    }
+}
+
+
+.item-wrapper .card::before,
+.item-wrapper .card::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.item-wrapper .card {
+    transition: color 0.25s;
+}
+
+.item-wrapper .card::before,
+.item-wrapper .card::after {
+    border: 1px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.item-wrapper .card::before {
+    top: 0;
+    left: 0;
+}
+
+.item-wrapper .card::after {
+    bottom: 0;
+    right: 0;
+}
+
+.item-wrapper .card:hover::before,
+.item-wrapper .card:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+
+.item-wrapper .card:hover::before {
+    border-top-color: #e09657;
+    border-right-color: #e09657;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.item-wrapper .card:hover::after {
+    border-bottom-color: #e09657;
+    border-left-color: #e09657;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+/***************************product items css end************************************/
+
+
+/********************************************* sidebar css *********************************************/
+/********************************************* sidebar css end here*********************************************/

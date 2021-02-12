@@ -1,0 +1,23 @@
+{% extends 'usertemplates/base.html' %}
+{% load static %}
+{% block body %}
+<!-- carousel -->
+{% block carousel %}{% include 'usertemplates/landing_page/carousel.html' %}{% endblock %}
+<!-- product catalog -->
+{% block category %}{% include 'usertemplates/landing_page/category.html' %}{% endblock %}
+<!-- call to action -->
+{% block cta %}{% include 'usertemplates/landing_page/cta.html' %}{% endblock %}
+<!-- latest product -->
+<!-- best seller -->
+{% block hotProduct %}{% include 'usertemplates/landing_page/hotProduct.html' %}{% endblock %}
+<!-- motivational -->
+{% block motivational %}{% include 'usertemplates/landing_page/motivational.html' %}{% endblock %}
+<!-- description -->
+{% block description %}{% include 'usertemplates/landing_page/description.html' %}{% endblock %}
+<!-- newsletter -->
+<!-- boxrow -->
+{% block boxRow %}{% include 'usertemplates/landing_page/boxRow.html' %}{% endblock %}
+<!-- footer -->
+{% block footer %}{% include 'usertemplates/landing_page/footer.html' %}{% endblock %}
+
+{% endblock %}

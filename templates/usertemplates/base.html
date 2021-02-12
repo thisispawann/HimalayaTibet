@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>HimalyaTibet</title>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Lato&family=Poppins&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- animate css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/animate/animate.min.css' %}"
+    />
+
+    <!-- fontawesome icon -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/fontawesome/css/font-awesome.min.css' %}"
+    />
+    <!-- bootstrap -->
+    <link
+      href="{% static 'userstatic/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'userstatic/MagnificPopup/magnific-popup.css' %}"
+      rel="stylesheet"
+    />
+
+    <!-- noUiSLider CSS -->
+    <link
+      href="{% static 'userstatic/plugins/nouislider/noUiSlider.min.css' %}"
+      rel="stylesheet"
+    />
+    <!-- owl carousel -->
+    <link
+      rel="stylesheet"
+      href="{% static 'userstatic/dest/owl.carousel.min.css' %}"
+    />
+    <!-- external css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/navbar/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/news/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/carousel/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/category/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/cta/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/featureProduct/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/description/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/landing_page/footer/style.css' %}"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'userstatic/css/shop/style.css' %}"
+    />
+    {% block css %}{% endblock %}
+  </head>
+  <style>
+    body {
+      font-family: DM Sans, -apple-system, BlinkMacSystemFont, Arial, Helvetica,
+        "Helvetica Neue", Verdana, sans-serif;
+    }
+  </style>
+
+  <body>
+    <!-- Headers section -->
+    {% block navbar %}{% include 'usertemplates/navbar.html' %}{% endblock %}
+    <!-- Headers section end-->
+
+    {% block body %} {% endblock %} {% block extra_body %} {% endblock %}
+
+    <!-- Footer section -->
+    <!-- Footer section -->
+
+    <script src="{% static 'userstatic/bootstrap/js/jquery.min.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'userstatic/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- GASP ScrollTrigger-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/ScrollTrigger.min.js"></script>
+    <!-- Scroll JS-->
+    <script src="{% static 'userstatic/js/scroll.js' %}"></script>
+    <script src="{% static 'userstatic/MagnificPopup/jquery.magnific-popup.min.js' %}"></script>
+    <!-- owl carasoul js -->
+    <script src="{% static 'userstatic/dest/owl.carousel.min.js' %}"></script>
+
+    <!-- noUISlider -->
+    <script src="{% static 'userstatic/plugins/nouislider/nouislider.min.js' %}"></script>
+    <!-- Custom Script -->
+    <script src="{% static 'userstatic/js/main.js' %}"></script>
+
+    {% block js %} {% endblock %}
+    <!-- <script src=" jquery-3.4.1.slim.min.js"></script> -->
+  </body>
+</html>

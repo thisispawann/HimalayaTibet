@@ -1,0 +1,44 @@
+.feature-product {
+    height: auto;
+    min-height: 200px;
+    width: 85%;
+    margin: 0 auto;
+    padding: 130px 0;
+}
+
+.feature-product .row {
+    margin: 0px !important;
+}
+
+.owl-carousel .owl-nav {
+    right: 0px;
+    position: absolute;
+    top: -23% !important;
+}
+
+.owl-carousel .owl-nav button {
+    margin: 7px;
+    border-radius: 50%;
+}
+
+.owl-carousel .owl-nav button span {
+    font-size: 58px;
+    padding-bottom: 50px;
+    color: #222;
+}
+
+.owl-carousel .owl-nav button {
+    outline: none;
+    padding: 0px !important;
+}
+
+
+.owl-dots {
+    display: none;
+}
+
+.feature-product .owl-carousel .owl-item {
+    /* margin: 0 1x0px; */
+}
+
+@media screen and (max-width:768px) {}

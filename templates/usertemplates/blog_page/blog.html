@@ -1,0 +1,110 @@
+{% extends 'usertemplates/base.html' %}
+{% load static %}
+{% block body %}
+<div class="blog-wrapper">
+    <div class="blog-header row align-items-center"
+        style="background-image: url('{% static 'userstatic/img/landing_page/bike_tour.jpg' %}');">
+        <h2 class="text-center text-light mx-auto">Our News</h2>
+    </div>
+    <div class="blog-container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3 w-100 p-3">
+                <div class="card w-100 our-news-wrapper p-3" style="width: 18rem;">
+                    <div class="img-wrapper">
+                        <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala.jpg' %}"
+                            alt="blogImage">
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'ecomapp:blog-detail' %}">
+                            <h5 class="font-weight-bold">
+                                Meaning of the mantra OM MANI PADME HUM</h5>
+                        </a>
+                        <p class="card-text"><small class="text-muted">Posted on jan 1, 2021</small>
+                        </p>
+                        <p class="card-text">In Tibet it is unusual for a practitioner to ask his Spiritual Master the
+                            meaning of a certain mantra because often ..</p>
+                        <a href="{% url 'ecomapp:blog-detail' %}" class="links">Read more..</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3 w-100 p-3">
+                <div class="card w-100 our-news-wrapper p-3" style="width: 18rem;">
+                    <div class="img-wrapper">
+                        <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala.jpg' %}"
+                            alt="causeImage">
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'ecomapp:blog-detail' %}">
+                            <h5 class="font-weight-bold">
+                                Meaning of the mantra OM MANI PADME HUM</h5>
+                        </a>
+                        <p class="card-text"><small class="text-muted">Posted on jan 1, 2021</small>
+                        </p>
+                        <p class="card-text">In Tibet it is unusual for a practitioner to ask his Spiritual Master the
+                            meaning of a certain mantra because often ..</p>
+                        <a href="{% url 'ecomapp:blog-detail' %}" class="links">Read more..</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3 w-100 p-3">
+                <div class="card w-100 our-news-wrapper p-3" style="width: 18rem;">
+                    <div class="img-wrapper">
+                        <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala.jpg' %}"
+                            alt="causeImage">
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'ecomapp:blog-detail' %}">
+                            <h5 class="font-weight-bold">
+                                Meaning of the mantra OM MANI PADME HUM</h5>
+                        </a>
+                        <p class="card-text"><small class="text-muted">Posted on jan 1, 2021</small>
+                        </p>
+                        <p class="card-text">In Tibet it is unusual for a practitioner to ask his Spiritual Master the
+                            meaning of a certain mantra because often ..</p>
+                        <a href="{% url 'ecomapp:blog-detail' %}" class="links">Read more..</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3 w-100 p-3">
+                <div class="card w-100 our-news-wrapper p-3" style="width: 18rem;">
+                    <div class="img-wrapper">
+                        <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala.jpg' %}"
+                            alt="causeImage">
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'ecomapp:blog-detail' %}">
+                            <h5 class="font-weight-bold">
+                                Meaning of the mantra OM MANI PADME HUM</h5>
+                        </a>
+                        <p class="card-text"><small class="text-muted">Posted on jan 1, 2021</small>
+                        </p>
+                        <p class="card-text">In Tibet it is unusual for a practitioner to ask his Spiritual Master the
+                            meaning of a certain mantra because often ..</p>
+                        <a href="{% url 'ecomapp:blog-detail' %}" class="links">Read more..</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12 my-3 w-100 p-3">
+                <div class="card w-100 our-news-wrapper p-3" style="width: 18rem;">
+                    <div class="img-wrapper">
+                        <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala.jpg' %}"
+                            alt="causeImage">
+                    </div>
+                    <div class="card-body">
+                        <a href="{% url 'ecomapp:blog-detail' %}">
+                            <h5 class="font-weight-bold">
+                                Meaning of the mantra OM MANI PADME HUM</h5>
+                        </a>
+                        <p class="card-text"><small class="text-muted">Posted on jan 1, 2021</small>
+                        </p>
+                        <p class="card-text">In Tibet it is unusual for a practitioner to ask his Spiritual Master the
+                            meaning of a certain mantra because often ..</p>
+                        <a href="{% url 'ecomapp:blog-detail' %}" class="links">Read more..</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'usertemplates/base.html' %}
+{% load static %}
+{% block body %}
+<style>
+    .details-wrapper {
+        margin-top: 30px !important;
+    }
+
+    .newsdetail-container {
+        width: 85%;
+        margin: 0px auto;
+        min-height: 1000px;
+        padding-top: 100px;
+    }
+
+    .newsdetail-container p {
+        text-align: justify;
+    }
+</style>
+<div class="details-wrapper">
+    <div class="newsdetail-container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <div class="card mt-5">
+                    <img class="card-img-top" src="{% static 'userstatic/img/landing_page/bike_tour.jpg' %}"
+                        alt="blogImage">
+                    <div class="card-body">
+                        <h4 class="card-title font-weight-bold">Meaning of the mantra OM MANI PADME HUM</h4>
+                        <p class="card-text">
+                            In Tibet è inusuale che un praticante chieda al suo Maestro Spirituale il significato di un
+                            determinato mantra perchè spesso la comprensione è talmente profonda che assimilarlo non è
+                            così immediato, quindi i praticanti si concentrano maggiormente sulla recitazione con grande
+                            fede.
+
+                            Om Mani Padme Hum è il mantra piu recitato in assoluto in Tibet, e non solo. Oltre alla
+                            ripetizione orale, i praticanti usano le ruote di preghiera che ne amplificano e
+                            moltiplicano la ripetizione. Ricordo che gli anziani usavano bucare una conchiglia ogni
+                            miliardo di mantra recitati e con il tempo riuscivano a formare delle collane che
+                            indossavano.
+
+                            In occidente invece sono tutti molto curiosi di capire con l’intelletto il significato delle
+                            cose e ovviamente il significato del mantra Om Mani Padme Hum c’è! OM rappresenta la
+                            guarigione dalle malattie fisiche, MA rappresenta la guarigione dalle emozioni disturbanti
+                            sopratutto la paura, NI elimina l’orgoglio, PAD elimina l’odio, ME elimina l’attacamento,
+                            HUM è la sillaba che si riconduce al cuore ed elimina la profonda malattia dell’ignoranza.
+                            Poi a queste sei sillabe si aggiunge HRI che è la sillaba del buddha della compassione unita
+                            all’azione. Queste sei sillabe eliminano le sofferenza dei 6 reami che sono:
+
+                            Il reame degli Dei, la sofferenza dell’orgoglio
+
+                            Il reame dei Semidei, la sofferenza del conflitto
+
+                            Il reame degli Umani, le sofferenze della nascita, mallattia, vecchiaia e morte
+
+                            Il reame degli Animali, sofferenza dell’ignoranza e della paura
+
+                            Il reame degli Spiriti famelici, la sofferenza della bramosia e avarizia
+
+                            Il reame degli Esseri Infernali, la sofferenza della sofferenza dovuta a rabbia ed odio che
+                            si autoalimentano
+
+                            Questi stati dei 6 reami non sono qualcosa di astratto ma sono manifestazioni della nostra
+                            vita quotidiana quando la mente non è stabile e protetta. Riusciamo a vivere, in un’unica
+                            giornata, tutti questi stati mentali: passiamo dall’avidità alla gelosia, orgoglio e paura
+                            di perdere qualcosa, sperimentiamo la sofferenza della rabbia e dell’odio. Recitare questo
+                            mantra significa avere un potente antidoto, una protezione benedetta verso tutti i veleni di
+                            cui abbiamo parlato e così poter perfezionare il sentiero verso l’illuminazione con l’unione
+                            di tutte le qualità di Buddha Vajradhara nella sillaba HUM. Trazionalmente noi recitiamo un
+                            mala di Om Mani Padme Hum per almeno 108 volte e solo alla fine aggiungiamo la sillaba Hri
+                            pronunciata in modo prolungato… per poi ricominciare con un nuovo ciclo di recitazione.
+                        </p>
+                        <p class="card-text"><small class="text-muted">Posted on Jan 1, 2021</small></p>
+                        <hr />
+                        <h5 class="font-weight-bold">fallow us on</h5>
+                        <a href="https://www.facebook.com/profile.php?id=100008481586016">
+                            <img src="{% static 'userstatic/img/facebook.png' %}" class="card-img" alt="facebbokIcon"
+                                style="height:35px; width:35px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About us section -->
+            {% block blogDetailSidebar %}{% include 'usertemplates/blog_page/blogDetailSidebar.html' %}{% endblock %}
+            <!-- About us section end-->
+        </div>
+    </div>
+</div>
+{% endblock %}

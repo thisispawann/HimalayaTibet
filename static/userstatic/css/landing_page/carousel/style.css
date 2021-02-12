@@ -1,0 +1,98 @@
+#carouselExampleIndicators {
+    z-index: 0 !important;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.carousel-caption h2 {
+    font-family: 'Coiny', cursive;
+    text-transform: capitalize;
+    font-size: 50px;
+    color: #fff !important;
+}
+
+.carasoul h3 {
+    font-family: 'Coiny', cursive;
+    color: #fff !important;
+}
+
+/* .carousel-inner .carousel-item .carousel-caption {
+    padding-bottom: 10px !important;
+} */
+
+.carousel-inner .carousel-item .carousel-caption {
+    padding-bottom: 10% !important;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+}
+
+.carousel-caption .btn-button {
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 50px;
+    transition: 0.5s;
+    text-decoration: none;
+    background: #e09657;
+    color: #fff;
+}
+
+.carousel-caption .btn-button:hover {
+    color: #e09657;
+    transition: 0.5s;
+    background-color: #fff;
+}
+
+/****************************************carousel css***********************************/
+/* first slide */
+.animate__animated.animate__fadeInDown {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__bounceInUp {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__zoomIn {
+    --animate-duration: 1600ms;
+}
+
+/* second slide */
+
+.animate__animated.animate__rollIn {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__lightSpeedInRight {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__backInUp {
+    --animate-duration: 3200ms;
+}
+
+/* third slide */
+
+.animate__animated.animate__rotateInDownRight {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__rotateInUpRight {
+    --animate-duration: 1600ms;
+}
+
+.animate__animated.animate__rotateIn {
+    --animate-duration: 1600ms;
+}
+
+/****************************************carousel css  end***********************************/

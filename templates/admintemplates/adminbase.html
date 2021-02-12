@@ -1,0 +1,389 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{% block title %}{% endblock %} | {{ org.name }} | Admin Panel</title>
+    <link href="../../../../fonts.googleapis.com/csse27b.css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet" />
+    <link href="{% static 'adminstatic/css/themes/lite-purple.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'adminstatic/css/plugins/perfect-scrollbar.min.css' %}" rel="stylesheet" />
+
+    <!-- datatable -->
+    <link rel="stylesheet" href="{% static 'adminstatic/css/plugins/datatables.min.css' %}" />
+
+    <!-- toastr -->
+    <link rel="stylesheet" href="{% static 'adminstatic/css/plugins/toastr.css' %}" />
+  
+
+    {% block css %}
+    <style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 20px;
+    }
+
+    .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      top: 4px !important;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    </style>
+
+    {% endblock %}
+</head>
+<body class="text-left">
+    <div class="app-admin-wrap layout-sidebar-large">
+        <div class="main-header">
+            <div class="logo">
+                <img src="{{org.logo.url}}" alt="">
+            </div>
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="d-flex align-items-center">
+                <!-- Mega menu -->
+                <div class="dropdown mega-menu d-none d-md-block">
+                    <a href="#" class="btn text-muted dropdown-toggle mr-3" id="dropdownMegaMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shortcut</a>
+                    <div class="dropdown-menu text-left" aria-labelledby="dropdownMenuButton">
+                        <div class="row m-0">
+                            <div class="col-md-4 p-4 bg-img">
+                                <h2 class="title">{{org.name|capfirst}} <br> Dashboard</h2>
+                                <p>Welcome to {{org.name|capfirst}} Dashboard by Third Pole Handicraft. This dashboard is provided to you by Sujan Raj Tuladhar and Charitra Prajapati to manage your website content easily.
+                                </p>
+                                <p class="mb-4">You are using this dashboard to manage your website. If you have any problem regarding this dashboard, don't hesitate to contact us.</p>
+                                <a class="btn btn-lg btn-rounded btn-outline-warning" href="" target="_blank"> Contact Us </a>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <p class="text-primary text--cap border-bottom-primary d-inline-block">Quick Add/List</p>
+                                <ul class="links">
+                                    <li><a href="">Add User</a></li>
+                                    <li><a href="">Add Image Slider</a></li>
+                                    <li><a href="">Add Testimonial</a></li>
+                                    <li><a href="">Add Services</a></li>
+                                    <li><a href="">Add Pages</a></li>
+                                    <li><a href="">Add Blog</a></li>
+                                    <li><a href="">Add Product Category</a></li>
+                                    <li><a href="">List Quotations</a></li>
+                                    <li><a href="">List Products</a></li>
+                                    <li><a href="">List Blogs</a></li>
+                                    <li><a href="">List Sliders</a></li>
+                                    <li><a href="">List Users</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- / Mega menu -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <i class="search-icon text-muted i-Magnifi-Glass1"></i>
+                </div>
+            </div>
+            <div style="margin: auto"></div>
+            <div class="header-part-right">
+                <!-- Full screen toggle -->
+                <i class="i-Full-Screen header-icon d-none d-sm-inline-block" data-fullscreen></i>
+                <!-- Notificaiton -->
+                <div class="dropdown">
+                    <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="badge badge-primary">{{quo.count}}</span>
+                        <i class="i-Bell text-muted header-icon"></i>
+                    </div>
+                    <!-- Notification dropdown -->
+                    <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
+                        {% for q in quo %}
+                        <div class="dropdown-item d-flex">
+                            <div class="notification-icon">
+                                <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
+                            </div>
+                            <a href="id %}" data-remote="id %}" data-toggle="modal" data-target="#bd-example-modal-lg">
+                            <div class="notification-details flex-grow-1">
+                                <p class="m-0 d-flex align-items-center">
+                                    <span>{{q.name}}</span>
+                                    <span class="badge badge-pill badge-primary ml-1 mr-1">{{q.mobile}}</span>
+                                    <span class="flex-grow-1"></span>
+                                    <span class="text-small text-muted ml-auto">{{q.created_at|timesince}}</span>
+                                </p>
+                                <p class="text-small text-muted m-0">{{q.details|safe|truncatechars:'30'}}</p>
+                            </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- Notificaiton End -->
+                <!-- User avatar dropdown -->
+                <div class="dropdown">
+                    <div class="user col align-self-end">
+                        <img src="{% static 'adminstatic/images/faces/1.jpg' %}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <div class="dropdown-header">
+                                <i class="i-Lock-User mr-1"></i> {{ request.user }} ({{request.user}})
+                            </div>
+                            <a class="dropdown-item" href="">Change Password</a>
+                            <a class="dropdown-item" href="">User List</a>
+                            <a class="dropdown-item" href="">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="side-content-wrap">
+            <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+                <ul class="navigation-left">
+                    <li class="nav-item" data-item="dashboard"><a class="nav-item-hold" href="#"><i class="nav-icon i-Bar-Chart"></i><span class="nav-text">Dashboard</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="apps"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Website</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item" data-item="widgets"><a class="nav-item-hold" href="#"><i class="nav-icon i-Computer-Secure"></i><span class="nav-text">Products</span></a>
+                        <div class="triangle"></div>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-item-hold" href=""><i class="nav-icon i-File-Clipboard-File--Text"></i><span class="nav-text">Quotation</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-item-hold" href=""><i class="nav-icon i-Administrator"></i><span class="nav-text">Messages</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                     <li class="nav-item"><a class="nav-item-hold" href=""><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="nav-text">Faq</span></a>
+                        <div class="triangle"></div>
+                    </li>
+                     <li class="nav-item"><a class="nav-item-hold" href=""><i class="nav-icon i-Bell"></i><span class="nav-text">Subscriber</span></a>
+                        <div class="triangle"></div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar="" data-suppress-scroll-x="true">
+                <!-- Submenu Dashboards-->
+                <ul class="childNav" data-parent="dashboard">
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Clock-3"></i><span class="item-name">Dashboard</span></a></li>
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Clock-4"></i><span class="item-name">Organization</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="apps">
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Add-File"></i><span class="item-name">Color</span></a></li>
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Add-File"></i><span class="item-name">Size</span></a></li>
+                    <li class="nav-item"><a href="{% url 'umapp:adminsliderlist' %}"><i class="nav-icon i-Add-File"></i><span class="item-name">Image Slider</span></a></li>
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Add-File"></i><span class="item-name">Tags</span></a></li>
+                    <!-- <li class="nav-item"><a href=""><i class="nav-icon i-Email"></i><span class="item-name">Testimonial</span></a></li> -->
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Email"></i><span class="item-name">Testimonial</span></a></li>
+                    <!-- <li class="nav-item"><a href=""><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Services</span></a></li> -->
+                    <!-- <li class="nav-item"><a href=""><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Pages</span></a></li> -->
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Speach-Bubble-3"></i><span class="item-name">Blog</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="widgets">
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Receipt-4"></i><span class="item-name">Product Category</span></a></li>
+                    <li class="nav-item"><a href=""><i class="nav-icon i-Receipt-4"></i><span class="item-name">Product List</span></a></li>
+                </ul>
+                <!-- chartjs-->
+                <ul class="childNav" data-parent="charts">
+                    <li class="nav-item"><a href=""><i class="nav-icon i-File-Clipboard-Text--Image"></i><span class="item-name">Quotation</span></a></li>
+                </ul>
+                <ul class="childNav" data-parent="uikits">
+                    <li class="nav-item"><a href="alerts.html"><i class="nav-icon i-Bell1"></i><span class="item-name">Alerts</span></a></li>
+                    <li class="nav-item"><a href="accordion.html"><i class="nav-icon i-Split-Horizontal-2-Window"></i><span class="item-name">Accordion</span></a></li>
+                    <li class="nav-item"><a href="badges.html"><i class="nav-icon i-Medal-2"></i><span class="item-name">Badges</span></a></li>
+                    <li class="nav-item"><a href="buttons.html"><i class="nav-icon i-Cursor-Click"></i><span class="item-name">Buttons</span></a></li>
+                    <li class="nav-item"><a href="cards.html"><i class="nav-icon i-Line-Chart-2"></i><span class="item-name">Cards</span></a></li>
+                    <li class="nav-item"><a href="card.metrics.html"><i class="nav-icon i-ID-Card"></i><span class="item-name">Card Metrics</span></a></li>
+                    <li class="nav-item"><a href="carousel.html"><i class="nav-icon i-Video-Photographer"></i><span class="item-name">Carousels</span></a></li>
+                    <li class="nav-item"><a href="lists.html"><i class="nav-icon i-Belt-3"></i><span class="item-name">Lists</span></a></li>
+                    <li class="nav-item"><a href="pagination.html"><i class="nav-icon i-Arrow-Next"></i><span class="item-name">Paginations</span></a></li>
+                    <li class="nav-item"><a href="popover.html"><i class="nav-icon i-Speach-Bubble-2"></i><span class="item-name">Popover</span></a></li>
+                    <li class="nav-item"><a href="progressbar.html"><i class="nav-icon i-Loading"></i><span class="item-name">Progressbar</span></a></li>
+                    <li class="nav-item"><a href="tables.html"><i class="nav-icon i-File-Horizontal-Text"></i><span class="item-name">Tables</span></a></li>
+                    <li class="nav-item"><a href="tabs.html"><i class="nav-icon i-New-Tab"></i><span class="item-name">Tabs</span></a></li>
+                    <li class="nav-item"><a href="tooltip.html"><i class="nav-icon i-Speach-Bubble-8"></i><span class="item-name">Tooltip</span></a></li>
+                    <li class="nav-item"><a href="modals.html"><i class="nav-icon i-Duplicate-Window"></i><span class="item-name">Modals</span></a></li>
+                    <li class="nav-item"><a href="nouislider.html"><i class="nav-icon i-Width-Window"></i><span class="item-name">Sliders</span></a></li>
+                </ul>
+            </div>
+            <div class="sidebar-overlay"></div>
+        </div>
+        <!-- =============== Left side End ================-->
+        <div class="main-content-wrap sidenav-open d-flex flex-column">
+            <!-- ============ Body content start ============= -->
+            
+
+            {% block content %}
+
+            {% endblock %}
+
+
+            <!-- Footer Start -->
+            <div class="flex-grow-1"></div>
+            <div class="app-footer">
+                <div class="row">
+                    <div class="col-md-9">
+                        <p><strong>Advanced Ecommerce Dashboard Provided by Sujan Raj Tuladhar and Charitra Prajapati.</strong></p>
+                    </div>
+                </div>
+                <div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
+                    <a class="btn btn-primary text-white btn-rounded" href="https://sarobartech.com/" target="_blank">Visit Website</a>
+                    <span class="flex-grow-1"></span>
+                    <div class="d-flex align-items-center">
+                        <img class="logo" src="{{org.logo.url}}" alt="">
+                        <div>
+                            <p class="m-0">&copy; 2020 Sujan Raj Tuladhar and Charitra Prajapati</p>
+                            <p class="m-0">All rights reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- fotter end -->
+        </div>
+    </div>
+
+    <!--  Modal delete -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail Large Modal -->
+    <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'adminstatic/js/plugins/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/plugins/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/plugins/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/scripts/script.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/scripts/sidebar.large.script.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/plugins/echarts.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/scripts/echart.options.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/scripts/dashboard.v1.script.min.js' %}"></script>
+
+    <!-- datatable -->
+    <script src="{% static 'adminstatic/js/plugins/datatables.min.js' %}"></script>
+    <script src="{% static 'adminstatic/js/scripts/datatables.script.min.js' %}"></script>
+
+    <!-- toast -->
+    <script src="{% static 'adminstatic/js/plugins/toastr.min.js' %}"></script>
+    <script src="{% static 'adminstatic/scripts/toastr.script.min.js' %}"></script>
+
+    <script type="text/javascript">
+      $('#exampleModal').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget);
+        var modal = $(this);
+        modal.find('.modal-content').load(button.data("remote"));
+      });
+      $('#exampleModal').on('hidden.bs.modal', function (e) {
+        var button = $(e.relatedTarget);
+        var modal = $(this);
+        modal.find('.modal-content').empty();
+      });
+    </script>
+
+    <script type="text/javascript">
+      $('#bd-example-modal-lg').on('show.bs.modal', function (e) {
+        var button = $(e.relatedTarget);
+        var modal = $(this);
+        modal.find('.modal-content').load(button.data("remote"));
+      });
+      $('#bd-example-modal-lg').on('hidden.bs.modal', function (e) {
+        var button = $(e.relatedTarget);
+        var modal = $(this);
+        modal.find('.modal-content').empty();
+      });
+    </script>
+
+    <!-- message -->
+    {% if messages %}
+    {% for message in messages %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            {% if message.tags == "success" %}
+            toastr.success("{{message}} {{message.tags}}", "Success", {
+            timeOut: "3000"
+            });
+            {% else %}
+            toastr.error("{{message}} {{message.tags}}", "Success", {
+            timeOut: "3000"
+            });
+            {% endif %}
+        })
+    </script>
+
+<!--     <script type="text/javascript">
+        $(document).ready(function() {
+          $('.summernote').summernote();
+        });
+    </script> -->
+    {% endfor %}
+    {% endif %}
+
+    {% block js %}
+
+    {% endblock %}
+</body>
+
+
+
+</html>

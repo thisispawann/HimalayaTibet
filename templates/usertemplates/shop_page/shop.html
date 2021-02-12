@@ -1,0 +1,113 @@
+{% extends 'usertemplates/base.html' %}
+{% load static %}
+{% block body %}
+<div class="shop-wrapper">
+    <div class="shop-header row align-items-center "
+        style="background-image: url('{% static 'userstatic/img/landing_page/bike_tour.jpg' %}');">
+        <h2 class="mx-auto text-light">Mala</h2>
+    </div>
+    <div class="shop-container">
+        <div class="select my-5 ml-auto">
+            <select name="slct" id="slct" class="pl-3">
+                <option selected>Default sorting</option>
+                <option>Most Recent</option>
+                <option>Best selling</option>
+                <option>Price, low to high</option>
+                <option>Price, high to low</option>
+            </select>
+        </div>
+        <hr>
+        <div class="row pt-5">
+            <div class="col-lg-3 col-md-3 col-sm-12 pr-5">
+                {% block sidebar %}{% include 'usertemplates/shop_page/sidebar.html' %}{% endblock %}
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-12 item-wrapper">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <p href="#" class="badge badge-sell">Sell</p>
+                            <img class="card-img-top img-fluid"
+                                src="{% static 'userstatic/img/landing_page/bracelet.jpg'%}" alt="productItem">
+                            <div class="card-body ">
+                                <p class="card-text">Mala 108 grains with natural woods</p>
+                                <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <img class="card-img-top img-fluid" src="{% static 'userstatic/img/landing_page/flag.jpg'%}"
+                                alt="productItem">
+                            <div class="card-body">
+                                <p class="card-text">Large Tibetan Prayer Flags pack of 5 rolls</p>
+                                <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala3.webp'%}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Mala 108 grains with natural woods</p>
+                                <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <img class="card-img-top" src="{% static 'userstatic/img/landing_page/bowl.jpg'%}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Tibetan bell manipuri phs</p>
+                                <h5 class="card-title"><s class="text-muted pr-1">$600</s><b> $500.00 </b>vat included
+                                </h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <p href="#" class="badge badge-sell">Sell</p>
+                            <img class="card-img-top img-fluid" src="{% static 'userstatic/img/landing_page/ring.jpg'%}"
+                                alt="productItem">
+                            <div class="card-body">
+                                <p class="card-text">Adjustable mani mantra ring</p>
+                                <h5 class="card-title"><b>$50.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <p href="#" class="badge badge-sell">Sell</p>
+                            <img class="card-img-top img-fluid"
+                                src="{% static 'userstatic/img/landing_page/rosso.jpg'%}" alt="productItem">
+                            <div class="card-body ">
+                                <p class="card-text">Mahakal Rosso</p>
+                                <h5 class="card-title"><b>$500.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 my-3 d-flex">
+                        <div class="card p-2 flex-fill">
+                            <img class="card-img-top img-fluid"
+                                src="{% static 'userstatic/img/landing_page/Statue.jpg'%}" alt="productItem">
+                            <div class="card-body">
+                                <p class="card-text">Large Tibetan Prayer Flags pack of 5 rolls</p>
+                                <h5 class="card-title"><b>$305.00 </b>vat included</h5>
+                                <a href="#" class="btn btn-primary">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

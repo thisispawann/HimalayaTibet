@@ -1,0 +1,542 @@
+{% load static %}
+<style>
+    .filter-card {
+        font-size: 16px;
+    }
+
+    h6.title {
+        font-size: 16px !important;
+    }
+
+    #category .arrow {
+        transform: rotate(0);
+        left: 0;
+
+    }
+
+    .card-header h6:hover {
+        cursor: pointer;
+    }
+
+    .card-header a:hover {
+        text-decoration: none;
+    }
+
+    .rating {
+        color: #e09657;
+    }
+
+    .rating .fa-star {
+        color: #e09657 !important;
+    }
+
+    .filter-content a:hover {
+        text-decoration: none;
+    }
+
+    #category .arrow:before,
+    #category .arrow:after {
+        background-color: transparent;
+        width: 3px;
+        height: 10px;
+        display: inline-block;
+        position: absolute;
+        border-bottom: 12px solid #e09657;
+        top: 0;
+        left: 0;
+        transform: rotate(0);
+        box-sizing: content-box;
+    }
+
+    #category .arrow:before {
+        transform: rotate(-135deg)
+    }
+
+    #category .arrow:after {
+        transform: rotate(135deg)
+    }
+
+    #category.active .arrow {
+        transform: rotate(0);
+        transform: translate(0, -6px);
+    }
+
+    #category.active .arrow:before {
+        transform: rotate(-45deg)
+    }
+
+    #category.active .arrow:after {
+        transform: rotate(45deg)
+    }
+
+    .arrow {
+        width: 13px;
+        height: 13px;
+        display: inline-block;
+        position: relative;
+        bottom: -5px;
+        left: -10px;
+        transition: 0.4s ease;
+        margin-top: 2px;
+        text-align: left;
+        transform: rotate(45deg);
+        float: right;
+    }
+
+    .arrow:before,
+    .arrow:after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 3px;
+        background-color: #fff;
+        transition: 0.4s ease;
+    }
+
+    .arrow:after {
+        position: absolute;
+        transform: rotate(90deg);
+        top: -5px;
+        left: 5px;
+    }
+
+    #categoryArticle .card-header {
+        color: #000;
+    }
+
+    #categoryArticle a {
+        color: inherit;
+    }
+
+    article .card-header {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /**
+    article .card-header::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        background: #2980b9;
+        height: 4px;
+        -webkit-transition-property: left right;
+        transition-property: left right;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    article .card-header:hover:before {
+        right: 0;
+        left: 0;
+    }
+
+    **/
+    .level-two {
+        margin-left: 35px;
+    }
+
+
+    .list-group-item {
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .rating-article .filter-content a:hover {
+        text-decoration: none;
+    }
+
+
+    .rating {
+        list-style: none;
+    }
+
+    .rating li {
+        display: inline;
+    }
+
+    .rating li p {
+        display: inline;
+    }
+
+    .filter-content input[type=checkbox]+label {
+        display: block;
+        margin: 0.2em;
+        cursor: pointer;
+        padding: 0.2em;
+    }
+
+    .filter-content input[type=checkbox] {
+        display: none;
+    }
+
+    .filter-content input[type=checkbox]+label:before {
+        content: "\2713";
+        border: 0.1em solid #000;
+        border-radius: 0.2em;
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        padding: 0px 0.3em 0.3em;
+        margin-right: 1.5em;
+        vertical-align: middle;
+        ;
+        color: transparent;
+        transition: 200ms
+    }
+
+    .filter-content input[type=checkbox]+label:active:before {
+        transform: scale(0);
+    }
+
+    input[type=checkbox]:checked+label:before {
+        background-color: MediumSeaGreen;
+        border-color: MediumSeaGreen;
+        color: #fff;
+    }
+
+    #sliderPrice {
+        width: 96%;
+        max-width: 96%;
+    }
+
+    /* custom styles for UiSlider */
+    .noUi-connect {
+        background: #e09657;
+    }
+
+    .noUi-target {
+        cursor: pointer;
+    }
+
+    .noUi-target:focus {
+        outline: none;
+    }
+
+    .noUi-horizontal {
+        height: 9px;
+    }
+
+    .noUi-horizontal .noUi-handle {
+        top: -6px;
+        right: -15px;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        box-shadow: unset;
+        cursor: pointer;
+        transition: transform .1s;
+    }
+
+    .noUi-horizontal .noUi-handle:before,
+    .noUi-horizontal .noUi-handle:after {
+        content: none;
+    }
+
+    .noUi-horizontal .noUi-handle:hover {
+        transform: scale(1.1);
+    }
+
+    .noUi-horizontal .noUi-handle:focus {
+        outline: none;
+    }
+</style>
+<div class="card filter-card my-3">
+    <article class="card-group-item" id="categoryArticle">
+        <header class="card-header">
+            <a href="#" id="category" data-toggle="collapse" data-target="#categoryCollapse" data-abc="true"
+                aria-expanded="true" aria-controls="collapseCategory" class="">
+                <h6 class="title">
+                    Categories
+                    <span class="arrow"></span>
+                </h6>
+                <!-- <i class="icon-control fa fa-chevron-down float-right"></i> -->
+            </a>
+        </header>
+        <div class="filter-content collapse" id="categoryCollapse">
+            <div class="card-body">
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categoryOneCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseOneCategory">
+                    Mala
+                    <span class="float-right badge badge-light round ">23</span>
+                </a>
+                <div id="categoryOneCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+
+
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categoryTwoCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseTwoCategory">
+                    Bells
+                    <span class="float-right badge badge-light round">15</span>
+                </a>
+                <div id="categoryTwoCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categoryThreeCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseThreeCategory">
+                    Gong
+                    <span class="float-right badge badge-light round">32</span>
+                </a>
+                <div id="categoryThreeCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categoryFourCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseThreeCategory">
+                    Singing Bowl
+                    <span class="float-right badge badge-light round">37</span>
+                </a>
+                <div id="categoryFourCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categoryFiveCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseThreeCategory">
+                    Mandala
+                    <span class="float-right badge badge-light round">23</span>
+                </a>
+                <div id="categoryFiveCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+                <a href="" class="list-group-item" class="category level-one" data-toggle="collapse"
+                    data-target="#categorySixCollapse" data-abc="true" aria-expanded="true"
+                    aria-controls="collapseThreeCategory">
+                    Prayer flag
+                    <span class="float-right badge badge-light round">50</span>
+                </a>
+                <div id="categorySixCollapse" class="sub-category level-two collapse">
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                    <a href="" class="list-group-item">
+                        Mala
+                        <span class="float-right badge badge-light round">787</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+    <article class="card-group-item rating-article">
+        <header class="card-header">
+            <h6 class="title">
+                Avg. Customer Review
+            </h6>
+        </header>
+        <div class="filter-content">
+            <div class="card-body">
+                <a href="#!">
+                    <ul class="rating">
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <p class="small text-uppercase card-link-secondary px-2">& Up</p>
+                        </li>
+                    </ul>
+                </a>
+                <a href="#!">
+                    <ul class="rating">
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <p class="small text-uppercase card-link-secondary px-2">& Up</p>
+                        </li>
+                    </ul>
+                </a>
+                <a href="#!">
+                    <ul class="rating">
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <p class="small text-uppercase card-link-secondary px-2">& Up</p>
+                        </li>
+                    </ul>
+                </a>
+                <a href="#!">
+                    <ul class="rating">
+                        <li>
+                            <i class="fa fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <i class="far fa-star fa-sm text-primary"></i>
+                        </li>
+                        <li>
+                            <p class="small text-uppercase card-link-secondary px-2">& Up</p>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </article>
+    <article class="card-group-item" id="price">
+        <header class="card-header">
+            <h6 class="title">
+                Price
+            </h6>
+        </header>
+        <div class="filter-content">
+            <div class="card-body">
+                <div class="form-check pl-0 mb-3">
+                    <input type="checkbox" class="form-check-input" id="under25" name="price_filter" value="<25">
+                    <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under
+                        $25</label>
+                </div>
+                <div class="form-check pl-0 mb-3">
+                    <input type="checkbox" class="form-check-input" id="25_50" name="price_filter" value="25-50">
+                    <label class="form-check-label small text-uppercase card-link-secondary" for="25_50">$25 to
+                        $50</label>
+                </div>
+                <div class="form-check pl-0 mb-3">
+                    <input type="checkbox" class="form-check-input" id="5-100" name="price_filter" value="50-100">
+                    <label class="form-check-label small text-uppercase card-link-secondary" for="5-100">$50 to
+                        $100</label>
+                </div>
+                <div class="form-check pl-0 mb-3">
+                    <input type="checkbox" class="form-check-input" id="100_200" name="price_filter" value="100-200">
+                    <label class="form-check-label small text-uppercase card-link-secondary" for="100_200">$100 to
+                        $200</label>
+                </div>
+                <div class="form-check pl-0 mb-3">
+                    <input type="checkbox" class="form-check-input" id="200Above" name="price_filter" value="200>">
+                    <label class="form-check-label small text-uppercase card-link-secondary" for="200Above">$200 &
+                        Above</label>
+                </div>
+
+                <form class="form-group price-range">
+                    <div class="d-flex align-items-center mt-4 pb-1">
+                        <div class="">
+                            <input id="from" type="text" class="form-control mb-0" value="">
+                            <label for="form">$ Min</label>
+                        </div>
+                        <p class="px-2 mb-0 text-muted"> - </p>
+                        <div class="">
+                            <input id="to" type="text" class="form-control mb-0" value="">
+                            <label for="to">$ Max</label>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="sliderPrice" data-min="0" data-max="700" data-step="10"></div>
+            </div>
+        </div>
+    </article>
+</div>
+<script>
+    document.getElementById('category').onclick = function () {
+        var className = ' ' + category.className + ' ';
+        this.className = ~className.indexOf(' active ') ?
+            className.replace(' active ', ' ') :
+            this.className + ' active';
+    }
+</script>

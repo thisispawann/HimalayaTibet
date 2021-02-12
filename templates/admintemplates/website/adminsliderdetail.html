@@ -1,0 +1,26 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="bd-example-modal-lg">{{sliderdetail.title|capfirst}}</h5>
+    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <p> Title:&ensp; <b> {{sliderdetail.title}} </b></p>
+            <p> Action Link Name:&ensp; <b> {{sliderdetail.action_link_name}} </b></p>
+            <p> Action Link:&ensp; <b> {{sliderdetail.action_link}} </b></p>
+        </div>
+        <div class="col-md-12">
+            <p>Image:</p>
+            <img src="{{sliderdetail.image.url}}" style="object-fit: cover;" width="100%" height="300px">            
+        </div>
+        <br>
+        <div class="col-md-12" style="margin-top: 10px;">
+            <p> Content </p>
+            <p> {{sliderdetail.content|safe}} </p>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+</div>
+

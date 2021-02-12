@@ -1,0 +1,88 @@
+{% load static %}
+<style>
+</style>
+<div class="feature-product">
+    <h2 class="pb-2 pr-5">Best selling product</h2>
+    <hr>
+    <div class="owl-carousel owl-theme item-wrapper row">
+        <div class="item m-3">
+            <div class="card p-2 d-flex">
+                <p href="#" class="badge badge-sell">Sell</p>
+                <img class="card-img-top img-fluid" src="{% static 'userstatic/img/landing_page/bracelet.jpg'%}"
+                    alt="productItem">
+                <div class="card-body flex-fill">
+                    <p class="card-text">Mala 108 grains with natural woods</p>
+                    <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="item m-3">
+            <div class="card p-2 d-flex">
+                <img class="card-img-top img-fluid" src="{% static 'userstatic/img/landing_page/flag.jpg'%}"
+                    alt="productItem">
+                <div class="card-body flex-fill">
+                    <p class="card-text">Large Tibetan Prayer Flags pack of 5 rolls</p>
+                    <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="item m-3">
+            <div class="card p-2 d-flex">
+                <img class="card-img-top" src="{% static 'userstatic/img/landing_page/bowl.jpg'%}" alt="Card image cap">
+                <div class="card-body flex-fill">
+                    <p class="card-text">Tibetan bell manipuri phs</p>
+                    <h5 class="card-title"><s class="text-muted pr-1">$600</s><b> $500.00 </b>vat included
+                    </h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="item m-3">
+            <div class="card p-2 d-flex">
+                <img class="card-img-top" src="{% static 'userstatic/img/landing_page/mala3.webp'%}"
+                    alt="Card image cap">
+                <div class="card-body flex-fill">
+                    <p class="card-text">Mala 108 grains with natural woods</p>
+                    <h5 class="card-title"><b>$15.00 </b>vat included</h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="item m-3">
+            <div class="card p-2 d-flex">
+                <p href="#" class="badge badge-sell">Sell</p>
+                <img class="card-img-top img-fluid" src="{% static 'userstatic/img/landing_page/ring.jpg'%}"
+                    alt="productItem">
+                <div class="card-body flex-fill">
+                    <p class="card-text">Adjustable mani mantra ring</p>
+                    <h5 class="card-title"><b>$50.00 </b>vat included</h5>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'userstatic/bootstrap/js/jquery.min.js' %}"></script>
+<script src="{% static 'userstatic/dest/owl.carousel.min.js' %}"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        autoplay: true,
+        autoplayTimeout: 7000,
+        margin: 10,
+        nav: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 4
+            }
+        }
+    })
+</script>
